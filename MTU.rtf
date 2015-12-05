@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b\fs24 \cf0 marca cabe\'e7ote:
+\b0  posiciona cabe\'e7ote no primeiro simbolo do input\
+
+\b \
+marca estado inicial:
+\b0  vai para o inicio da entrada da maquina M. substitui q  por Q, e poe  tantos U\'92s quantos 1\'92s existirem, se verifica inicial sai com sucesso (deixando Q1), senao, retorna q\'92s e 1\'92s  pro estado verificado, verifica se proximo \'e9 inicial, faz isso at\'e9 n\'e3o ter mais estados e encontrar $, e rejeita input (escreve rejeitado, nao possui estado inicial)\
+\
+
+\b marca lido do estado Q: 
+\b0  retorna ao inicio da entrada da maquina M, e vai pra direita procurando estado inicial marcado (procura Q), se encontra Q, marca simbolo seguinte, aA ou bB.\
+\
+o que faz: procura inicial, marca, procura lida do estado, escreve, procura proximo estado, compara com lido, verifica o bloco, repete\
+\
+mudar simbolos\
+b = e\
+B = E\
+# = /\
+\
+ teste\
+\
+mudar estados\
+\
+marca cabecote = MUT_posiciona cabecote\
+marca estado inicial = MUT_destaca estado inicial\
+marca lido do estado Q = MUT_marca simbolo apos estado atual\
+compara lido do estado Q com palavra lida = MUT_compara simbolo do estado atual com palavra\
+marca escrito do estado Q = MUT_marca simbolo a escrever\
+escreve na palavra lida = MUT_escreve simbolo na palavra\
+marca estado Q de acordo com C = MUT_posiciona cabecote no proximo estado\
+\
+testar\
+\
+remover estados\
+\
+}
