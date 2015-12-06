@@ -21,6 +21,20 @@
 		</block>
 		<!--The list of transitions.-->
 		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>U</read>
+			<write>1</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>1</to>
+			<read>1</read>
+			<write>1</write>
+			<move>R</move>
+		</transition>
+		<transition>
 			<from>3</from>
 			<to>1</to>
 			<read>f</read>
@@ -28,7 +42,7 @@
 			<move>R</move>
 		</transition>
 		<transition>
-			<from>3</from>
+			<from>1</from>
 			<to>1</to>
 			<read>1</read>
 			<write>1</write>
@@ -44,15 +58,15 @@
 		<transition>
 			<from>1</from>
 			<to>4</to>
-			<read>B</read>
-			<write>B</write>
+			<read>E</read>
+			<write>E</write>
 			<move>R</move>
 		</transition>
 		<transition>
 			<from>1</from>
 			<to>4</to>
-			<read>A</read>
-			<write>A</write>
+			<read>e</read>
+			<write>e</write>
 			<move>R</move>
 		</transition>
 		<transition>
@@ -65,22 +79,8 @@
 		<transition>
 			<from>1</from>
 			<to>4</to>
-			<read>b</read>
-			<write>b</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>1</to>
-			<read>U</read>
-			<write>1</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>1</to>
-			<read>1</read>
-			<write>1</write>
+			<read>A</read>
+			<write>A</write>
 			<move>R</move>
 		</transition>
 		<!--The list of automata-->
@@ -105,11 +105,25 @@
 			</block>
 			<!--The list of transitions.-->
 			<transition>
+				<from>1</from>
+				<to>2</to>
+				<read>Q</read>
+				<write>Q</write>
+				<move>R</move>
+			</transition>
+			<transition>
 				<from>0</from>
 				<to>0</to>
 				<read>!□</read>
 				<write>~</write>
 				<move>L</move>
+			</transition>
+			<transition>
+				<from>0</from>
+				<to>1</to>
+				<read/>
+				<write/>
+				<move>R</move>
 			</transition>
 			<transition>
 				<from>1</from>
@@ -193,20 +207,6 @@
 				<to>1</to>
 				<read>f</read>
 				<write>f</write>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>0</from>
-				<to>1</to>
-				<read/>
-				<write/>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>1</from>
-				<to>2</to>
-				<read>Q</read>
-				<write>Q</write>
 				<move>R</move>
 			</transition>
 			<!--The list of automata-->

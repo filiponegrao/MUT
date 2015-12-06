@@ -22,30 +22,44 @@
 		<!--The list of transitions.-->
 		<transition>
 			<from>0</from>
-			<to>0</to>
-			<read>!□</read>
-			<write>~</write>
-			<move>L</move>
-		</transition>
-		<transition>
-			<from>0</from>
 			<to>1</to>
 			<read/>
 			<write/>
 			<move>R</move>
 		</transition>
 		<transition>
+			<from>0</from>
+			<to>0</to>
+			<read>!□</read>
+			<write>~</write>
+			<move>L</move>
+		</transition>
+		<transition>
 			<from>1</from>
 			<to>1</to>
-			<read>B</read>
-			<write>B</write>
+			<read>/</read>
+			<write>/</write>
 			<move>R</move>
 		</transition>
 		<transition>
 			<from>1</from>
 			<to>1</to>
-			<read>b</read>
-			<write>b</write>
+			<read>e</read>
+			<write>e</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>E</read>
+			<write>E</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>U</read>
+			<write>U</write>
 			<move>R</move>
 		</transition>
 		<transition>
@@ -53,13 +67,6 @@
 			<to>1</to>
 			<read>1</read>
 			<write>1</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>1</to>
-			<read>#</read>
-			<write>#</write>
 			<move>R</move>
 		</transition>
 		<transition>
@@ -109,13 +116,6 @@
 			<to>1</to>
 			<read>q</read>
 			<write>q</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>1</to>
-			<read>U</read>
-			<write>U</write>
 			<move>R</move>
 		</transition>
 		<transition>
