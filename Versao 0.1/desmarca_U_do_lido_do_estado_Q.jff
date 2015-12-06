@@ -13,84 +13,85 @@
 			<x>517.0</x>
 			<y>346.0</y>
 		</block>
-		<block id="2" name="MUT_ProcuraLidoEstadoMarcado">
-			<tag>MUT_ProcuraLidoEstadoMarcado.jff</tag>
-			<x>772.0</x>
-			<y>343.0</y>
-			<final/>
-		</block>
-		<block id="4" name="MUT_ProcuraLidoEstadoMarcado">
-			<tag>MUT_ProcuraLidoEstadoMarcado.jff</tag>
-			<x>186.0</x>
-			<y>340.0</y>
+		<block id="3" name="procura_lido_do_estado_Q">
+			<tag>procura_lido_do_estado_Q.jff</tag>
+			<x>166.0</x>
+			<y>346.0</y>
 			<initial/>
+		</block>
+		<block id="4" name="procura_lido_do_estado_Q">
+			<tag>procura_lido_do_estado_Q.jff</tag>
+			<x>898.0</x>
+			<y>349.0</y>
+			<final/>
 		</block>
 		<!--The list of transitions.-->
 		<transition>
 			<from>1</from>
-			<to>2</to>
-			<read>A</read>
-			<write>A</write>
+			<to>1</to>
+			<read>U</read>
+			<write>1</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>1</to>
+			<read>U</read>
+			<write>1</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>1</to>
+			<read>1</read>
+			<write>1</write>
 			<move>R</move>
 		</transition>
 		<transition>
 			<from>1</from>
-			<to>2</to>
-			<read>a</read>
-			<write>a</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>2</to>
-			<read>B</read>
-			<write>B</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>2</to>
+			<to>4</to>
 			<read>b</read>
 			<write>b</write>
 			<move>R</move>
 		</transition>
 		<transition>
 			<from>1</from>
-			<to>1</to>
-			<read>1</read>
-			<write>1</write>
+			<to>4</to>
+			<read>B</read>
+			<write>B</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>a</read>
+			<write>a</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>4</to>
+			<read>A</read>
+			<write>A</write>
 			<move>R</move>
 		</transition>
 		<transition>
 			<from>1</from>
 			<to>1</to>
-			<read>U</read>
-			<write>1</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>4</from>
-			<to>0</to>
-			<read>B</read>
-			<write>B</write>
-			<move>S</move>
-		</transition>
-		<transition>
-			<from>4</from>
-			<to>1</to>
 			<read>1</read>
 			<write>1</write>
 			<move>R</move>
 		</transition>
 		<transition>
-			<from>4</from>
-			<to>1</to>
-			<read>U</read>
-			<write>1</write>
-			<move>R</move>
+			<from>3</from>
+			<to>0</to>
+			<read>B</read>
+			<write>B</write>
+			<move>S</move>
 		</transition>
 		<!--The list of automata-->
-		<MUT_ProcuraLidoEstadoMarcado.jff>
+		<Machine0/>
+		<procura_lido_do_estado_Q.jff>
 			<!--The list of states.-->
 			<block id="0" name="q0">
 				<tag>Machine0</tag>
@@ -117,41 +118,6 @@
 			<!--The list of transitions.-->
 			<transition>
 				<from>2</from>
-				<to>2</to>
-				<read>U</read>
-				<write>U</write>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>2</from>
-				<to>2</to>
-				<read>1</read>
-				<write>1</write>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>1</from>
-				<to>1</to>
-				<read>!Q</read>
-				<write>~</write>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>1</from>
-				<to>2</to>
-				<read>Q</read>
-				<write>Q</write>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>0</from>
-				<to>0</to>
-				<read>!□</read>
-				<write>~</write>
-				<move>L</move>
-			</transition>
-			<transition>
-				<from>2</from>
 				<to>3</to>
 				<read>B</read>
 				<write>B</write>
@@ -165,19 +131,53 @@
 				<move>R</move>
 			</transition>
 			<transition>
+				<from>1</from>
+				<to>2</to>
+				<read>Q</read>
+				<write>Q</write>
+				<move>R</move>
+			</transition>
+			<transition>
+				<from>1</from>
+				<to>1</to>
+				<read>!Q</read>
+				<write>~</write>
+				<move>R</move>
+			</transition>
+			<transition>
 				<from>0</from>
 				<to>1</to>
 				<read/>
 				<write/>
 				<move>R</move>
 			</transition>
+			<transition>
+				<from>2</from>
+				<to>2</to>
+				<read>1</read>
+				<write>1</write>
+				<move>R</move>
+			</transition>
+			<transition>
+				<from>2</from>
+				<to>2</to>
+				<read>U</read>
+				<write>U</write>
+				<move>R</move>
+			</transition>
+			<transition>
+				<from>0</from>
+				<to>0</to>
+				<read>!□</read>
+				<write>~</write>
+				<move>L</move>
+			</transition>
 			<!--The list of automata-->
-			<Machine0/>
-			<Machine2/>
-			<Machine1/>
 			<Machine3/>
-		</MUT_ProcuraLidoEstadoMarcado.jff>
-		<Machine0/>
+			<Machine0/>
+			<Machine1/>
+			<Machine2/>
+		</procura_lido_do_estado_Q.jff>
 		<Machine1/>
 	</automaton>
 </structure>
