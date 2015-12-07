@@ -2,7 +2,7 @@
 	<type>turing</type>
 	<automaton>
 		<!--The list of states.-->
-		<block id="0" name="MTU_MarcaCabecote">
+		<block id="0" name="MTU_PosicionaCabecote">
 			<tag>procura_cabecote.jff</tag>
 			<x>226.0</x>
 			<y>355.0</y>
@@ -27,9 +27,30 @@
 		</block>
 		<!--The list of transitions.-->
 		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>U</read>
+			<write>1</write>
+			<move>R</move>
+		</transition>
+		<transition>
 			<from>1</from>
 			<to>1</to>
 			<read>U</read>
+			<write>1</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read/>
+			<write/>
+			<move>L</move>
+		</transition>
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>1</read>
 			<write>1</write>
 			<move>R</move>
 		</transition>
@@ -45,27 +66,6 @@
 			<to>2</to>
 			<read>a</read>
 			<write>a</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>1</to>
-			<read>1</read>
-			<write>1</write>
-			<move>R</move>
-		</transition>
-		<transition>
-			<from>1</from>
-			<to>2</to>
-			<read/>
-			<write/>
-			<move>L</move>
-		</transition>
-		<transition>
-			<from>0</from>
-			<to>1</to>
-			<read>U</read>
-			<write>1</write>
 			<move>R</move>
 		</transition>
 		<!--The list of automata-->
@@ -96,13 +96,6 @@
 			<!--The list of transitions.-->
 			<transition>
 				<from>2</from>
-				<to>3</to>
-				<read>A</read>
-				<write>A</write>
-				<move>R</move>
-			</transition>
-			<transition>
-				<from>2</from>
 				<to>2</to>
 				<read>b</read>
 				<write>b</write>
@@ -130,10 +123,10 @@
 				<move>S</move>
 			</transition>
 			<transition>
-				<from>0</from>
-				<to>1</to>
-				<read/>
-				<write/>
+				<from>2</from>
+				<to>3</to>
+				<read>A</read>
+				<write>A</write>
 				<move>R</move>
 			</transition>
 			<transition>
@@ -141,6 +134,13 @@
 				<to>2</to>
 				<read>$</read>
 				<write>$</write>
+				<move>R</move>
+			</transition>
+			<transition>
+				<from>0</from>
+				<to>1</to>
+				<read/>
+				<write/>
 				<move>R</move>
 			</transition>
 			<transition>
