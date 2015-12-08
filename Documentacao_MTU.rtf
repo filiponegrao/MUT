@@ -1,10 +1,9 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red16\green19\blue26;\red77\green77\blue77;\red77\green77\blue77;
-}
-\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15500\viewkind0
+{\colortbl;\red255\green255\blue255;\red16\green19\blue26;\red77\green77\blue77;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14420\viewh13220\viewkind0
 \deftab720
-\pard\pardeftab720
+\pard\pardeftab720\partightenfactor0
 
 \f0\b\fs26 \cf2 \expnd0\expndtw0\kerning0
 Linguagens formais e aut\'f4matos\
@@ -37,58 +36,79 @@ C = marca estado estado anterior\
 \
 \ul M\'f3dulos principais:\
 \ulnone \
-principal.jff\
-	M\'f3dulo principal que comanda a execu\'e7\'e3o. Cont\'e9m os subm\'f3dulos: \
+
+\b principal.jff\
+
+\b0 	M\'f3dulo principal que comanda a execu\'e7\'e3o. Cont\'e9m os subm\'f3dulos: \
 \
-MTU_PosicionaCabecote.jff\
-	Anda com cabe\'e7ote at\'e9 o primeiro s\'edmbolo ap\'f3s $ e, se h\'e1 entrada, marca A.\
+
+\b MTU_PosicionaCabecote.jff\
+
+\b0 	Anda com cabe\'e7ote at\'e9 o primeiro s\'edmbolo ap\'f3s $ e, se h\'e1 entrada, marca A.\
 \
-MTU_DestacaEstadoInicial.jff\
-	Retorna ao in\'edcio da entrada da m\'e1quina e percorre para a direita procurando estado Inicial,\
-\pard\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
+
+\b MTU_DestacaEstadoInicial.jff\
+
+\b0 	Retorna o cabe\'e7ote de leitura ao in\'edcio da entrada da m\'e1quina e percorre para a direita procurando estado Inicial,\
 isto \'e9: encontra um q, marca Q, marca tantos U\'92s quantos 1\'92s houverem ap\'f3s este Q. Se n\'e3o \'e9 q1 (QU), desfaz marca\'e7\'f5es\
 (Q = q e U = 1) e procura pr\'f3ximo. Enquanto n\'e3o encontra $, continua procurando. Se acha inicial sai do m\'f3dulo deixando\
 Q1 marcado. Se n\'e3o encontra, sai do m\'f3dulo e n\'e3o retorna um inicial para o principal*.\
 * No principal, a entrada \'e9 incorreta e tem sa\'edda pelo estado q4.\
 \
-MTU_EntradaIncorreta.jff\
-	Imprime Entrada Incorreta ap\'f3s palavra lida.\
+
+\b MTU_EntradaIncorreta.jff\
+
+\b0 	Imprime Entrada Incorreta ap\'f3s palavra lida.\
 \
-MTU_MarcaSimboloAposEstadoAtual.jff\
+
+\b MTU_MarcaSimboloAposEstadoAtual.jff
+\b0 \
 	Marca s\'edmbolo ap\'f3s Q (estado atual), ou seja, marca s\'edmbolo que deve ser lido naquela regra onde se encontra Q, para que posteriormente\
 seja comparado com s\'edmbolo lido na entrada. Se a, marca A; se e, marca E.\
 \
-MTU_ComparaSimboloDoEstadoAtualComPalavra.jff\
+
+\b MTU_ComparaSimboloDoEstadoAtualComPalavra.jff
+\b0 \
 	Percorre para ler s\'edmbolo da palavra de entrada que ser\'e1 comparado com s\'edmbolo ap\'f3s o estado atual (para que se defina qual regra aplicar). \
 Se encontra E (branco), vai para estado final q22 e sai do m\'f3dulo.\
 *No m\'f3dulo principal sai no final q17, passando antes pelo m\'f3dulo MTU_RemoveBranco.jff (que remove o s\'edmbolo \'91e\'92 da entrada).\
 \
 A compara\'e7\'e3o \'e9 feita da seguinte forma: \
 Encontra \'91Q\'92 (estado atual) e marca s\'edmbolo \'91a\'92 que o segue como \'91A\'92;\
-Percorre at\'e9 encontrar um s\'edmbolo \'91a\'92 na palavra lida e marca \'91A\'92;\
+Percorre at\'e9 encontrar um s\'edmbolo \'91a\'92 na palavra lida e marca \'91A\'92 (Ja antes executado);\
 Vai marcando U para cada 1 encontrado ap\'f3s os s\'edmbolos A marcados;\
-	Se s\'edmbolo lido do estado atual (Q) igual s\'edmbolo lido na palavra (est\'e1 na regra que ser\'e1 aplicada):\
+Dessa forma para cada U marcado na palavra lida, ha de se encontrar um\
+1 a converter-se para U nos estados passados. Se o s\'edmbolo lido n\'e3o corresponder\
+ao s\'edmbolo presente no estado, esse ter\'e1 mais U\'92s do que os U\'92s do estado, e assim\
+verifica-se que os s\'edmbolos n\'e3o s\'e3o correspondentes;\
+	Se s\'edmbolo lido do estado atual (Q) \'e9 igual s\'edmbolo lido na palavra (est\'e1 na regra que ser\'e1 aplicada):\
 	Marca estado atual Q como C (estado anterior); \cf3 (utilizando subm\'f3dulos menores)\cf2 \
-	Procura pr\'f3ximo estado \'91q\'92 e marca como Q (novo atual); \cf4 \expnd0\expndtw0\kerning0
-(utilizando subm\'f3dulos menores)\cf2 \expnd0\expndtw0\kerning0
-\
-	Desmarca U dos s\'edmbolos lidos na palavra e no estado anterior; \cf4 \expnd0\expndtw0\kerning0
-(utilizando subm\'f3dulos menores)\cf2 \expnd0\expndtw0\kerning0
-\
+	Procura pr\'f3ximo estado \'91q\'92 e marca como Q (novo atual); \cf3 (utilizando subm\'f3dulos menores)\cf2 \
+	Desmarca U dos s\'edmbolos lidos na palavra e no estado anterior; \cf3 (utilizando subm\'f3dulos menores)\cf2 \
 	Sai do m\'f3dulo.\
 	*No m\'f3dulo principal seguir\'e1 com o m\'f3dulo MTU_MarcaSimboloAEscrever.jff a ser descrito a seguir.\
 	\
 	Se s\'edmbolo do estado atual (Q) n\'e3o \'e9 igual s\'edmbolo lido na palavra (n\'e3o est\'e1 na regra que ser\'e1 aplicada):\
 	Procura pr\'f3ximo estado e inicia novo ciclo.	\
 \
-MTU_MarcaSimboloAEscrever.jff\
+
+\b MTU_MarcaSimboloAEscrever.jff
+\b0 \
 	Marca s\'edmbolo \'91a\'92 (a escrever) ap\'f3s Q (novo atual) como \'91A\'92;\
 \
-MTU_EscreveSimboloNaPalavra.jff\
-	\
+
+\b MTU_EscreveSimboloNaPalavra.jff
+\b0 \
+	Para cada 1 localizado apos o A (marcado no estado anterior como o s\'edmbolo a escrever),\
+	o modulo marca um U, e procura s\'edmbolo da palavra lida (Vai at\'e9 o primeiro s\'edmbolo ap\'f3s um A\
+	localizado na palavra de entrada). Ap\'f3s o s\'edmbolo marcado da palavra lida ser achado,\
+	Marca um U no lugar. Caso encontre um \'93a\'94, ao inv\'e9s de um 1, chama o modulo que shifta\
+	a palavra inteira para a direita, e apos isso, volta uma casa e escreve um U. O modulo faz isso\
+	repetidamente, tanto quanto forem os 1\'92s do estado lido a serem escritos na palavra lida.\
 \
-MTU_PosicionaCabecoteProxEstado.jff\
+
+\b MTU_PosicionaCabecoteProxEstado.jff
+\b0 \
 	Move cabecote para pr\'f3ximo estado corrente. Desmarca estado atual (Q = q). \
 Se encontra pr\'f3ximo, marca este. Se encontra $, n\'e3o h\'e1 pr\'f3ximo estado.\
 Se pr\'f3ximo estado \'e9 final, sai do m\'f3dulo e no principal ter\'e1 sa\'edda no estado final q16.\
@@ -99,7 +119,5 @@ Se pr\'f3ximo estado \'e9 final, sai do m\'f3dulo e no principal ter\'e1 sa\'edd
 \
 \
 	\
-\pard\pardeftab720
-\cf2 \expnd0\expndtw0\kerning0
 \
 }
